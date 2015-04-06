@@ -337,3 +337,6 @@ epub_show_urls = 'inline'
 
 # If false, no index is generated.
 epub_use_index = True
+
+locale_dirs = ['locale/']
+gettext_compat = False
