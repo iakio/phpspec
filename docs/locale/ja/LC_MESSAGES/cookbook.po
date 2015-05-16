@@ -1,0 +1,948 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: phpspec 2.1.x-dev\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-16 23:35+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ..\..\cookbook\configuration.rst:2 ..\..\cookbook\extensions.rst:15
+msgid "Configuration"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:4
+msgid ""
+"Some things in phpspec can be configured in a ``phpspec.yml`` or "
+"``phpspec.yml.dist`` file in the root of your project (the directory where "
+"you run the ``phpspec`` command)."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:8
+msgid ""
+"You can use a different config file name and path with the ``--config`` "
+"option:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:14
+msgid ""
+"You can also specify default values for config variables across all "
+"repositories by creating the file ``.phpspec.yml`` in your home folder (Unix"
+" systems). Phpspec will use your personal preference for all settings that "
+"are not defined in the project's configuration."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:21
+msgid "PSR-4"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:23
+msgid ""
+"**phpspec** assumes a PSR-0 mapping of namespaces to the src and spec "
+"directories by default. So for example running:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:30
+msgid ""
+"Will create a spec in the ``spec/Acme/Text/MarkdownSpec.php`` file and the "
+"class will be created in ``src/Acme/Text/Markdown.php``"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:33
+msgid ""
+"To use PSR-4 you configure the ``namespace`` and ``psr4_prefix`` options in "
+"a suite to the part that should be omitted from the directory structure:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:43
+msgid "With this config running:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:49
+msgid ""
+"will now put the spec in ``spec/MarkdownSpec.php`` and the class will be "
+"created in  ``src/Markdown.php``."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:53
+msgid "Spec and source locations"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:55
+msgid ""
+"The default locations used by **phpspec** for the spec files and source "
+"files are `spec` and `src` respectively. You may find that this does not "
+"always suit your needs. You can specify an alternative location in the "
+"configuration file. You cannot do this at the command line as it does not "
+"make sense for a spec or source files path to change at runtime."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:61
+msgid ""
+"You can specify alternative values depending on the namespace of the class "
+"you are describing. In phpspec, you can group specification files by a "
+"certain namespace in a *suite*. For each suite, you have several "
+"configuration settings:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:65
+msgid ""
+"``namespace`` - The namespace of the classes. Used for generating spec "
+"files, locating them and generating code;"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:67
+msgid ""
+"``spec_prefix`` [**default**: ``spec``] - The namespace prefix for "
+"specifications. The complete namespace for specifications is "
+"``%spec_prefix%\\%namespace%``;"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:70
+msgid ""
+"``src_path`` [**default**: ``src``] - The path to store the generated "
+"classes. Paths are relative to the location of the config file. **phpspec** "
+"creates the directories if they do not exist. This does not include the "
+"namespace directories;"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:74
+msgid ""
+"``spec_path`` [**default**: ``.``] - The path of the specifications. This "
+"does not include the spec prefix or namespace."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:76
+msgid "``psr4_prefix`` [**default**: ``null``] - A PSR-4 prefix to use."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:78
+msgid "Some examples:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:92
+msgid ""
+"**phpspec** will use suite settings based on the namespaces. If you have "
+"suites with different spec directories then ``phpspec run`` will run the "
+"specs from each of the directories using the relevant suite settings."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:96
+msgid ""
+"When you use ``phpspec desc`` **phpspec** creates the spec using the "
+"matching configuration.  E.g. ``phpspec desc Acme/Text/MyClass`` will use "
+"the the namespace ``acme_spec\\Acme\\Text\\MyClass``."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:100
+msgid ""
+"If the namespace does not match one of the namespaces in the suites config "
+"then **phpspec** uses the default settings. If you want to change the "
+"defaults then you can add a suite without specifying the namespace."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:113
+msgid ""
+"You can just set this suite if you wanted to override the default settings "
+"for all namespaces. Since **phpspec** matches on namespaces you cannot "
+"specify more than one set of configuration values for a null namespace. If "
+"you do add more than one suite with a null namespace then **phpspec** will "
+"use the last one defined."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:119
+msgid ""
+"Note that the default spec directory is ``.``, specs are created in the "
+"`spec` directory because it is the first part of the spec namespace. This "
+"means that changing the `spec_path` will result in additional directories "
+"before `spec` not instead of it. For example, with the config:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:131
+msgid "running:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:137
+msgid ""
+"will create the spec in the file "
+"``acme_spec/spec/Acme/Text/MarkdownSpec.php``"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:140
+msgid "Formatter"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:142
+msgid ""
+"You can also set another default formatter instead of ``progress``. The "
+"``--format`` option of the command can override this setting. To set the "
+"formatter, use ``formatter.name``:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:150 ..\..\cookbook\console.rst:112
+msgid "The formatters available by default are:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:152 ..\..\cookbook\console.rst:114
+msgid "progress (default)"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:153
+msgid "html/h"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:154 ..\..\cookbook\console.rst:116
+msgid "pretty"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:155 ..\..\cookbook\console.rst:117
+msgid "junit"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:156 ..\..\cookbook\console.rst:118
+msgid "dot"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:157
+msgid "tap"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:159 ..\..\cookbook\console.rst:120
+msgid ""
+"More formatters can be added by :doc:`extensions</cookbook/extensions>`."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:162
+msgid "Options"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:164
+msgid ""
+"You can turn off code generation in your config file by setting "
+"``code_generation``:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:170
+msgid ""
+"You can also set your tests to stop on failure by setting "
+"``stop_on_failure``:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:177 ..\..\cookbook\extensions.rst:2
+msgid "Extensions"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:179
+msgid ""
+"To register phpspec extensions, use the ``extensions`` option. This is an "
+"array of extension classes:"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:188
+msgid "Bootstrapping"
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:190
+msgid ""
+"There are times when you would be required to load classes and execute "
+"additional statements that the Composer-generated autoloader may not "
+"provide, which is likely for a legacy project that wants to introduce "
+"phpspec for designing new classes that may rely on some legacy "
+"collaborators."
+msgstr ""
+
+#: ..\..\cookbook\configuration.rst:192
+msgid ""
+"To load a custom bootstrap when running phpspec, use the "
+"``console.io.bootstrap`` setting:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:2
+msgid "Running phpspec"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:4
+msgid ""
+"The phpspec console command uses Symfony's console component. This means "
+"that it inherits the `default Symfony console command and options "
+"<http://symfony.com/doc/current/components/console/usage.html>`_."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:7
+msgid ""
+"**phpspec** has an additional global option to let you specify a config file"
+" other than `phpspec.yml` or `phpspec.yml.dist`:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:14 ..\..\cookbook\console.rst:32
+msgid "or:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:20
+msgid ""
+"Read more about this in the :doc:`Configuration Cookbook "
+"</cookbook/configuration>`"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:22
+msgid ""
+"Also of note is that using the `--no-interaction` command means that no code"
+" generation will be done."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:26
+msgid ""
+"**phpspec** has the global option to let you specify a custom bootstrap or "
+"autoloading script."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:39
+msgid "Describe Command"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:41
+msgid "The describe command creates a specification for a class:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:47
+msgid "Will generate a specification ClassNameSpec in the spec directory."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:53
+msgid ""
+"Will generate a namespaced specification Namespace\\ClassNameSpec. Note that"
+" / is used as the separator. To use \\ it must be quoted:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:60
+msgid ""
+"The describe command has no additional options. It will create a spec class "
+"in the `spec` directory. To configure a different path to the specs you can "
+"use :ref:`suites <configuration-suites>` in the configuration file."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:65
+msgid "Run Command"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:67
+msgid "The run command runs the specs:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:73
+msgid "Will run all the specs in the `spec` directory."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:79
+msgid ""
+"Will run only the ClassNameSpec. You can run just the specs in a directory "
+"with:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:86
+msgid ""
+"Which will run any specs found in `spec/Markdown` and its subdirectories. "
+"Note that it is the spec location and not namespaces that are used to decide"
+" which specs to run. Any spec which has a namespace which does not match its"
+" file path will be ignored."
+msgstr ""
+
+#: ..\..\cookbook\console.rst:91
+msgid ""
+"By default, you will be asked whether missing methods and classes should be "
+"generated. You can suppress these prompts and automatically choose not to "
+"generate code with:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:99
+msgid ""
+"You can choose to stop on failure and avoid running the remaining specs "
+"with:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:106
+msgid "You can choose the output format with the format option e.g.:"
+msgstr ""
+
+#: ..\..\cookbook\console.rst:115
+msgid "html"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:2
+msgid "Object Construction"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:4
+msgid ""
+"In **phpspec** specs the object you are describing is not a separate "
+"variable but is `$this`. So instead of writing something like:"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:24
+msgid "as you might with other tools, you write:"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:42
+msgid ""
+"On consequence this means that you do not construct the object you are "
+"describing in the examples. Instead **phpspec** handles the creation of the "
+"object you are describing when you run the specs."
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:46
+msgid ""
+"The default way **phpspec** does this is the same as ``new Markdown()``. If "
+"it does not need any values or dependencies to be passed to it then this is "
+"fine but for many objects this will not be good enough. You can tell "
+"**phpspec** how you want it to create the object though."
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:52
+msgid "Using the Constructor"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:54
+msgid ""
+"You can tell **phpspec** to pass values to the constructor when it "
+"constructs the object:"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:77
+msgid "Using a Factory Method"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:79
+msgid ""
+"You may not want to use the constructor but use static factory methods to "
+"create the class. This allows you to create it in different ways for "
+"different use cases since you can only have a single constructor in PHP."
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:100
+msgid ""
+"You can tell **phpspec** this is how you want to construct the object as "
+"follows:"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:122
+msgid ""
+"Where the first argument is the method name and the second an array of the "
+"values to pass to that method."
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:126
+msgid "Overriding"
+msgstr ""
+
+#: ..\..\cookbook\construction.rst:128
+msgid ""
+"To avoid repetition you can tell **phpspec** how to construct the object in "
+"`let`. However, you may have a single example that needs constructing in a "
+"different way. You can do this by calling ``beConstructedWith`` again in the"
+" example. The last time you call ``beConstructedWith`` will determine how "
+"**phpspec** constructs the object:"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:4
+msgid ""
+"Extensions can add functionality to **phpspec**, such as, integration with a"
+" particular framework. See below for some example extensions."
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:8
+msgid "Installation"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:10
+msgid ""
+"Individual extensions will have their own documentation that you can follow."
+" Usually you can install an extension by adding it to your ``composer.json``"
+" file and updating your vendors."
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:17
+msgid ""
+"You will need to tell **phpspec** that you want to use the extension. You "
+"can do this by adding it to the config file:"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:25
+msgid "You can pass options to the extension as well:"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:37
+msgid ""
+"See the :doc:`Configuration Cookbook </cookbook/configuration>` for more "
+"about config files."
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:40
+msgid "Example extensions"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:43
+msgid "Framework Integration"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:45
+msgid "`Symfony2 <https://github.com/phpspec/Symfony2Extension>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:46
+msgid "`Magento <https://github.com/MageTest/MageSpec>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:47
+msgid "`Laravel <https://github.com/BenConstable/phpspec-laravel>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:50
+msgid "Code generation"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:52
+msgid ""
+"`Typehinted Methods <https://github.com/ciaranmcnulty/phpspec-"
+"typehintedmethods>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:53
+msgid ""
+"`Example Generation <https://github.com/richardmiller/ExemplifyExtension>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:56
+msgid "Additional Formatters"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:58
+msgid "`Nyan Formatters <https://github.com/phpspec/nyan-formatters>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:61
+msgid "Metrics"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:63
+msgid ""
+"`Code coverage "
+"<https://github.com/henrikbjorn/PhpSpecCodeCoverageExtension>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:66
+msgid "Miscellaneous"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:68
+msgid "`Prepare <https://github.com/coduo/phpspec-prepare-extension>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:69
+msgid ""
+"`Data provider <https://github.com/coduo/phpspec-data-provider-extension>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:70
+msgid ""
+"`Matcher extension <https://github.com/coduo/phpspec-matcher-extension>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:71
+msgid "`Behat Integration <https://github.com/richardmiller/BehatSpec>`_"
+msgstr ""
+
+#: ..\..\cookbook\extensions.rst:72
+msgid ""
+"`Example skipping through annotation "
+"<https://github.com/akeneo/PhpSpecSkipExampleExtension>`_"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:2
+msgid "Matchers"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:4
+msgid ""
+"You use matchers in **phpspec** to describe how an object should behave. "
+"They are like assertions in xUnit but with a focus on specifying behaviour "
+"instead of verifying output. You use the matchers prefixed by ``should`` or "
+"``shouldNot`` as appropriate."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:10
+msgid ""
+"**phpspec** has 13 built-in matchers, described in more detail here. Many of"
+" these matchers have aliases which you can use to make your specifications "
+"easy to read."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:15
+msgid "Identity Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:17
+msgid ""
+"If you want to specify that a method returns a specific value, you can use "
+"the Identity matcher. It compares the result using the identity operator: "
+"``===``."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:39
+msgid ""
+"All four ways of these ways of using the Identity matcher are equivalent. "
+"There is no difference in how they work, this lets you choose the one which "
+"makes your specification easier to read."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:44
+msgid "Comparison Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:46
+msgid ""
+"The Comparison matcher is like the Identity matcher. The difference is that "
+"is uses the comparison operator ``==``. So it is not as strict and follows "
+"the PHP rules for loose type comparison."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:66
+msgid ""
+"Using ``shouldBeLike`` it does not matter whether ``StarWars::getRating()`` "
+"returns an integer or a string. The spec will pass for 5 and \"5\"."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:71
+msgid "Throw Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:73
+msgid ""
+"You can describe an object throwing an exception using the Throw matcher. "
+"You use the Throw matcher by calling it straight from ``$this``, making the "
+"example easier to read."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:93
+msgid "You can also write this as:"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:111
+msgid ""
+"The first argument of ``during`` is the method name and the second one is an"
+" array of values passed to the method."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:114
+msgid ""
+"You may want to specify the message of the exception. You can do this by "
+"passing an exception object to shouldThrow:"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:135
+msgid "Type Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:137
+msgid ""
+"You can specify the type of the object you are describing with the Type "
+"matcher. You can also use this matcher to check that a class implements an "
+"interface or that it extends a class."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:160
+msgid ""
+"All four matcher methods are equivalent and will serve to describe if the "
+"object is a ``Movie`` or not."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:165
+msgid "ObjectState Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:167
+msgid ""
+"The ObjectState matcher lets you check the state of an object by calling "
+"methods on it. These methods should start with ``is*`` or ``has*`` and "
+"return a boolean."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:194
+msgid ""
+"The spec will pass if the object has ``isAvailableOnCinemas`` and "
+"``hasSoundtrack`` methods which both return true:"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:216
+msgid "Count Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:218
+msgid ""
+"You can check the number of items in the return value using the Count "
+"matcher. The returned value could be an array or an object that implements "
+"the ``\\Countable`` interface."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:240
+msgid "Scalar Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:242
+msgid ""
+"To specify that the value returned by a method should be a specific "
+"primitive type you can use the Scalar matcher. It's like using one of the "
+"``is_*`` functions, e.g, ``is_bool``, ``is_integer``, ``is_float``, etc."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:269
+msgid "ArrayContain Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:271
+msgid ""
+"You can specify that a method should return an array that contains a given "
+"value with the ArrayContain matcher. **phpspec** matches the value by "
+"identity (``===``)."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:293
+msgid "ArrayKeyWithValue Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:295
+msgid ""
+"This matcher lets you assert a specific value for a specific key on a method"
+" that returns an array or an implementor of ArrayAccess."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:315
+msgid "ArrayKey Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:317
+msgid ""
+"You can specify that a method should return an array or an ArrayAccess "
+"object with a specific key using the ArrayKey matcher."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:338
+msgid "StringStart Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:340
+msgid ""
+"The StringStarts matcher lets you specify that a method should return a "
+"string starting with a given substring."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:361
+msgid "StringEnd Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:363
+msgid ""
+"The StringEnd matcher lets you specify that a method should return a string "
+"ending with a given substring."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:384
+msgid "StringRegex Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:386
+msgid ""
+"The StringRegex matcher lets you specify that a method should return a "
+"string matching a given regular expression."
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:407
+msgid "Inline Matcher"
+msgstr ""
+
+#: ..\..\cookbook\matchers.rst:409
+msgid "You can create custom matchers using the Inline matcher."
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:2
+msgid "Templates"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:4
+msgid ""
+"**phpspec** can generate code snippets that will save you time when "
+"specifying classes. The default templates will be suitable for many use "
+"cases."
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:7
+msgid ""
+"However in some cases, it'll be useful to customize those templates by "
+"providing ones that suit your project requirements. For example, you may "
+"need to add licence information in a docblock to every class file. Instead "
+"of doing this manually you can modify the template so it is already in the "
+"generated file."
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:13
+msgid "Overriding templates"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:18
+msgid "**phpspec** uses three templates:"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:16
+msgid ""
+"*specification* - used when a spec is generated using the `describe` command"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:17
+msgid ""
+"*class* - used to generate a class that is specified but which does not "
+"exist"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:18
+msgid "*method* - used to add a method that is specified to a class"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:20
+msgid ""
+"You can override these on a per project basis by creating a template file in"
+" `.phpspec` in the root directory of the project. For example, to add "
+"licence information to the docblock for a class, you can create a file "
+"``{project_directory}/.phpspec/class.tpl``. You can copy the contents of the"
+" default template found in **phpspec** at "
+"``src/PhpSpec/CodeGenerator/Generator/templates/class.template`` and add the"
+" docblock to it:"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:41
+msgid ""
+"So now, for example, you want to describe a class ``Acme\\Model\\Foo`` which"
+" does not exist. You can run the spec ``spec/Acme/Model/FooSpec.php`` and "
+"let **phpspec** generate the missing class. **phpspec** will use your "
+"overridden template and the generated file will look like:"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:62
+msgid ""
+"You can also override the templates for all your projects by creating a "
+"template in `.phpspec` in your home directory."
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:65
+msgid "**phpspec** uses the first template it finds by looking in this order:"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:67
+msgid "``{project_directory}/.phpspec/{template_name}.tpl``"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:68
+msgid "``{home_directory}/.phpspec/{template_name}.tpl``"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:69
+msgid "The default template"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:72
+msgid "Parameters"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:74
+msgid ""
+"As well as static text there are some parameters available like the "
+"``%namespace_block%`` in the example above. The parameters available depend "
+"on which type of template you are overriding:"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:82
+msgid "**specification**"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:79 ..\..\cookbook\templates.rst:85
+msgid "``%filepath%`` the file path of the class"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:80
+msgid "``%name%``  the specification name"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:81
+msgid "``%namespace%`` the specification namespace"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:82
+msgid "``%subject%`` the name of the class being specified"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:88
+msgid "**class**"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:86
+msgid "``%name%`` the class name"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:87
+msgid "``%namespace%`` the class namespace"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:88
+msgid "``%namespace_block%`` the formatted class namespace"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:91
+msgid "**method**"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:91
+msgid "``%name%`` the method name"
+msgstr ""
+
+#: ..\..\cookbook\templates.rst:92
+msgid "``%arguments%`` the method arguments"
+msgstr ""
+
+#: ..\..\cookbook\wrapped-objects.rst:2
+msgid "Working with Wrapped Objects"
+msgstr ""
+
+#: ..\..\cookbook\wrapped-objects.rst:4
+msgid ""
+"**phpspec** wraps some of the objects used in specs. For example ``$this`` "
+"is the object you are describing wrapped in a phpspec object. This is how "
+"you can call methods on ``$this`` and then call matchers on the returned "
+"values."
+msgstr ""
+
+#: ..\..\cookbook\wrapped-objects.rst:8
+msgid ""
+"Most of the time this is not something you need to worry about but sometimes"
+" it can be an issue."
+msgstr ""
+
+#: ..\..\cookbook\wrapped-objects.rst:11
+msgid ""
+"If you ever need to get the actual object then you can by calling "
+"``$this->getWrappedObject()``."
+msgstr ""
+
+#: ..\..\cookbook\wrapped-objects.rst:13
+msgid ""
+"If you try to specify a method on your object that starts with “should”, for"
+" example:"
+msgstr ""
+
+#: ..\..\cookbook\wrapped-objects.rst:23
+msgid ""
+"Then this will not work as expected because **phpspec** will intercept the "
+"call thinking it is a matcher. You can avoid this by using "
+"``callOnWrappedObject``:"
+msgstr ""
