@@ -572,6 +572,10 @@ msgid ""
 "instead of verifying output. You use the matchers prefixed by ``should`` or "
 "``shouldNot`` as appropriate."
 msgstr ""
+"**phpspec** でオブジェクトがどのように振る舞うかを記述するにはmacherを使います。"
+"これらはxUnitのassersionに似ていますが、出力を検査するかわりに振る舞いを指定することにフォーカスしています。"
+"You use the matchers prefixed by ``should`` or "
+"``shouldNot`` as appropriate."
 
 #: ..\..\cookbook\matchers.rst:10
 msgid ""
@@ -579,6 +583,8 @@ msgid ""
 " these matchers have aliases which you can use to make your specifications "
 "easy to read."
 msgstr ""
+"**phpspec** にはここで説明する13個の組み込みmacherがあります。"
+"多くのmacherには、スペックを読み易くするためのaliasがあります。"
 
 #: ..\..\cookbook\matchers.rst:15
 msgid "Identity Matcher"
@@ -590,6 +596,8 @@ msgid ""
 "the Identity matcher. It compares the result using the identity operator: "
 "``===``."
 msgstr ""
+"メソッドの戻り値を指定したい場合は、Identity macherを使います。"
+"これは identity operator ``===`` を使って結果を比較します。"
 
 #: ..\..\cookbook\matchers.rst:39
 msgid ""
@@ -597,6 +605,8 @@ msgid ""
 "There is no difference in how they work, this lets you choose the one which "
 "makes your specification easier to read."
 msgstr ""
+"これら4つのIdentity macherの使い方はすべて同じ意味です。"
+"これらの動作に違いは無いので、スペックが読み易くなるものを選んでください。"
 
 #: ..\..\cookbook\matchers.rst:44
 msgid "Comparison Matcher"
